@@ -8,11 +8,15 @@
   },
   "type": "module",
   "scripts": {
-    "watch test Stack": "watch -p testing/Stack.test.js data-structures/Stack.js -c node testing/Stack.test"
+    "watch Stack tests": "watch -p \"testing/Stack.test.js\" -c \"node testing/Stack.test\"",
+    "watch Stack implementation": "watch -p \"lib/data-structures/Stack.js\" -c \"node testing/Stack.test\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "watch-cli": "^0.2.3"
+  },
+  "dependencies": {
+    "console-table-printer": "^2.2.7"
   }
 }
