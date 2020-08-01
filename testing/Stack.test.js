@@ -15,15 +15,15 @@
 import Stack from "../lib/data-structures/Stack.js";
 import UnitTesting from "../lib/unit-testing/UnitTesting.js";
 
-const buildAssertionDetails = _ => ({ resultWas, resultExpected, ...evaluationObj })
-const buildAddAssertion = assertionName => unitTesting.addAssertion( assertionName, buildAssertionDetails())
-
 let resultWas, resultExpected
-const evaluationObj = {
+const buildAddAssertion = assertionName => unitTesting.addAssertion( assertionName, buildAssertionDetails())
+const buildAssertionDetails = _ => ({ 
+    resultWas,
+    resultExpected,
     get evaluation() { 
         return this.resultWas === this.resultExpected
     }
-}
+})
 
 ///////////////////////////////////////////////////////////
 
@@ -36,10 +36,11 @@ const unitTesting = new UnitTesting({
 
 unitTesting.before(function() {
     stack = new Stack()
+    stack.push()
     stack.push(1)
     stack.push(2)
     stack.push(3)
-    
+    stack.push()
 })
     
 resultWas = stack.count()
@@ -49,6 +50,10 @@ buildAddAssertion('stack.count() === 3')
 resultWas = stack.pop()
 resultExpected = 3
 buildAddAssertion('stack.pop() === 3')
+
+resultWas = stack.isEmpty()
+resultExpected = false
+buildAddAssertion('stack not empty')
 
 resultWas = stack.count()
 resultExpected = 2
@@ -66,6 +71,10 @@ resultWas = stack.pop()
 resultExpected = 1
 buildAddAssertion('stack.pop() === 1')
 
+resultWas = stack.isEmpty()
+resultExpected = true
+buildAddAssertion('stack is empty')
+
 resultWas = stack.pop()
 resultExpected = undefined
 buildAddAssertion('stack.pop() === undefined')
@@ -73,6 +82,10 @@ buildAddAssertion('stack.pop() === undefined')
 resultWas = stack.pop()
 resultExpected = undefined
 buildAddAssertion('stack.pop() === undefined')
+
+resultWas = stack.isEmpty()
+resultExpected = true
+buildAddAssertion('stack is empty')
 
 unitTesting.getResults()
 
