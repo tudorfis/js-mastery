@@ -8,7 +8,8 @@
   },
   "type": "module",
   "scripts": {
-    "watch": "watch -p \"**/*.js\" -c \"node testing/Stack.test & node testing/LinkedList.test\""
+    "watch unit": "watch -p \"**/*.js\" -c \"node testing/default.test & node testing/Stack.test\"",
+    "watch all": "watch -p \"**/*.js\" -c \"node testing/default.test & node testing/Stack.test & node testing/LinkedList.test\""
   },
   "author": "",
   "license": "ISC",
