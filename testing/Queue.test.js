@@ -1,6 +1,7 @@
 
 import Queue from "../lib/data-structures/Queue.js";
 import UnitTesting from "../lib/unit-testing/UnitTesting.js";
+import { objstring } from "../lib/global/object.utils.js";
 
 const queue = new Queue()
 
@@ -35,6 +36,13 @@ unitTesting.addAssertion([
 ])
 
 unitTesting.addAssertion([
+    `the queue should be ["Adi","Andrei","Bogdan"]`,
+    `queue.toArray()`,
+    objstring( queue.toArray() ),
+    `["Adi","Andrei","Bogdan"]`
+])
+
+unitTesting.addAssertion([
     `deque should bring out 'Adi'`,
     `queue.deque()`,
     queue.deque(),
@@ -53,6 +61,13 @@ unitTesting.addAssertion([
     `queue.enque( 'Tudor' )`,
     queue.enque( 'Tudor' ),
     undefined
+])
+
+unitTesting.addAssertion([
+    `the queue should be ["Bogdan","Tudor"]`,
+    `queue.toArray()`,
+    objstring( queue.toArray() ),
+    `["Bogdan","Tudor"]`
 ])
 
 unitTesting.addAssertion([

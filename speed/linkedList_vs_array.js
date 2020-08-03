@@ -44,6 +44,10 @@ for (let i = 0; i <= 10**n_power; i++) {
 }
 console.timeLog('array')
 
+
+//////////////////////////////////////////
+
+
 console.time('linkedList.find')
 linkedList.find(search_i)
 console.timeLog('linkedList.find')
