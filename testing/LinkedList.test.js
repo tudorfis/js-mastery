@@ -1,102 +1,102 @@
 import LinkedList from "../lib/data-structures/LinkedList.js"
 import UnitTesting from "../lib/unit-testing/UnitTesting.js"
-import { buildAssertionDetails } from "../lib/unit-testing/unitTesting.utils.js"
 
-let whatWasExecuted, resultWas, resultExpected
-const buildAddAssertion = assertionName => unitTesting.addAssertion( assertionName,
-    buildAssertionDetails({ whatWasExecuted, resultWas, resultExpected }))
-
-///////////////////////////////////////////////////////////
-
-let linkedList
+const linkedList = new LinkedList()
 
 const unitTesting = new UnitTesting({
     testName: 'LinkedList.js',
     testDescription: 'testing the implementation of a linkedList in javascript' 
 })
 
-unitTesting.before(function() {
-    linkedList = new LinkedList()
-})
+unitTesting.addAssertion([
+    'linkedList.head should be null',
+    `linkedList.head`,
+    linkedList.head,
+    null
+])
 
-resultWas = linkedList.head
-whatWasExecuted = `linkedList.head`
-resultExpected = null
-buildAddAssertion('linkedList.head should be null')
+unitTesting.addAssertion([
+    'linkedList.tail should be null',
+    `linkedList.tail`,
+    linkedList.tail,
+    null
+])
 
-resultWas = linkedList.tail
-whatWasExecuted = `linkedList.tail`
-resultExpected = null
-buildAddAssertion('linkedList.tail should be null')
-
-/////////////////////////////////////////
 linkedList.append( 'Tudor' )
-// linkedList.prepend( 'Tudor' )
+unitTesting.addAssertion([
+    `linkedList.head should be 'Tudor'`,
+    `linkedList.head.value`,
+    linkedList.head.value,
+    'Tudor'
+])
 
-resultWas = linkedList.head.value
-whatWasExecuted = `linkedList.head.value`
-resultExpected = 'Tudor'
-buildAddAssertion(`linkedList.head should be 'Tudor'`)
+unitTesting.addAssertion([
+    `linkedList.head should be 'Tudor'`,
+    `linkedList.head.value`,
+    linkedList.head.value,
+    'Tudor'
+])
 
-resultWas = linkedList.head.value
-whatWasExecuted = `linkedList.head.value`
-resultExpected = 'Tudor'
-buildAddAssertion(`linkedList.head should be 'Tudor'`)
+unitTesting.addAssertion([
+    `linkedList.head.next should be null`,
+    `linkedList.head.next`,
+    linkedList.head.next,
+    null
+])
 
-resultWas = linkedList.head.next
-whatWasExecuted = `linkedList.head.next`
-resultExpected = null
-buildAddAssertion(`linkedList.head.next should be null`)
+unitTesting.addAssertion([
+    `linkedList.tail.next should be null`,
+    `linkedList.tail.next`,
+    linkedList.tail.next,
+    null
+])
 
-resultWas = linkedList.tail.next
-whatWasExecuted = `linkedList.tail.next`
-resultExpected = null
-buildAddAssertion(`linkedList.tail.next should be null`)
-
-///////////////////////////////
 linkedList.append( 'Cristina' )
+unitTesting.addAssertion([
+    `last item should be 'Cristina'`,
+    `linkedList.head.next.value`,
+    linkedList.head.next.value,
+    'Cristina'
+])
 
-resultWas = linkedList.head.next.value
-whatWasExecuted = `linkedList.head.next.value`
-resultExpected = 'Cristina'
-buildAddAssertion(`last item should be 'Cristina'`)
+unitTesting.addAssertion([
+    `linkedList.tail.value should be 'Cristina'`,
+    `linkedList.tail.value`,
+    linkedList.tail.value,
+    'Cristina'
+])
 
-resultWas = linkedList.tail.value
-whatWasExecuted = `linkedList.tail.value`
-resultExpected = 'Cristina'
-buildAddAssertion(`linkedList.tail.value should be 'Cristina'`)
-
-///////////////////////////////
 linkedList.prepend( 'Costi' )
+unitTesting.addAssertion([
+    `head value should be 'Costi'`,
+    `linkedList.head.value`,
+    linkedList.head.value,
+    'Costi'
+])
 
-resultWas = linkedList.head.value
-whatWasExecuted = `linkedList.head.value`
-resultExpected = 'Costi'
-buildAddAssertion(`head value should be 'Costi'`)
-
-resultWas = linkedList.head.next.value
-whatWasExecuted = `linkedList.head.next.value`
-resultExpected = 'Tudor'
-buildAddAssertion(`head.next.value should be 'Tudor'`)
+unitTesting.addAssertion([
+    `head.next.value should be 'Tudor'`,
+    `linkedList.head.next.value`,
+    linkedList.head.next.value,
+    'Tudor'
+])
 
 
-////////////////////////////
 linkedList.prepend()
+unitTesting.addAssertion([
+    `head value should be 'Costi'`,
+    `linkedList.head.value`,
+    linkedList.head.value,
+    'Costi'
+])
 
-resultWas = linkedList.head.value
-whatWasExecuted = `linkedList.head.value`
-resultExpected = 'Costi'
-buildAddAssertion(`head value should be 'Costi'`)
-
-
-////////////////////////////
 linkedList.append()
-
-resultWas = linkedList.tail.value
-whatWasExecuted = `linkedList.tail.value`
-resultExpected = 'Cristina'
-buildAddAssertion(`tail value should be 'Cristina'`)
-
+unitTesting.addAssertion([
+    `tail value should be 'Cristina'`,
+    `linkedList.tail.value`,
+    linkedList.tail.value,
+    'Cristina'
+])
 
 ////////////////////////////////
 unitTesting.printResults()
