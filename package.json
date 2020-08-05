@@ -9,8 +9,8 @@
   "type": "module",
   "scripts": {
     "start": "npm run \"watch all\"",
-    "watch unit": "watch -p \"**/*.js\" -c \" node testing/default.test & node testing/async.test\"",
-    "watch all": "watch -p \"**/*.js\" -c \" node testing/default.test & node testing/Stack.test & node testing/LinkedList.test  & node testing/Queue.test & node testing/findFirstRepeatingCharacter.test & node testing/HashTable.test & node testing/makeRomanNumbers.test \""
+    "watch unit": "watch -p \"**/*.js\" -c \" node testing/default.test & node testing/Tree.test\"",
+    "watch all": "watch -p \"**/*.js\" -c \" node testing/default.test & node testing/async.test & node testing/findFirstRepeatingCharacter.test & node testing/HashTable.test & node testing/LinkedList.test & node testing/makeRomanNumbers.test & node testing/Queue.test & node testing/Stack.test & node testing/Tree.test \""
   },
   "author": "",
   "license": "ISC",
@@ -21,3 +21,5 @@
     "console-table-printer": "^2.2.7"
   }
 }
+
+
