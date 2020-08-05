@@ -52,7 +52,7 @@ unitTesting.addAssertion([
 ])
 
 unitTesting.addAssertion([
-    `table.get( 'name' ) should not return 'Tudor' `,
+    `table.get( 'name' ) should return 'Tudor' `,
     `table.get( 'name' )`,
     table.get( 'name' ),
     'Tudor'
@@ -62,14 +62,21 @@ table.set( 'name', 'Tudor222' )
 table.set( 'phone', '112' )
 
 unitTesting.addAssertion([
-    `table.get( 'name' ) should not return 'Tudor222' `,
+    `table.showInfo() then table.get( 'name' ) `,
+    `table.showInfo()`,
+    JSON.stringify( table.showInfo() ),
+    `[["name","Tudor222"],["phone","112"]]`
+])
+
+unitTesting.addAssertion([
+    `table.set( 'name', 'Tudor222' ) then table.get( 'name' ) `,
     `table.get( 'name' )`,
     table.get( 'name' ),
     'Tudor222'
 ])
 
 unitTesting.addAssertion([
-    `table.get( 'phone' ) should not return '112' `,
+    `table.set( 'phone', '112' ) then table.get( 'phone' ) `,
     `table.get( 'phone' )`,
     table.get( 'phone' ),
     '112'
@@ -79,21 +86,21 @@ table.delete( 'name' )
 table.delete( 'phone' )
 
 unitTesting.addAssertion([
-    `table.get( 'name' ) should return undefined since we delete that key `,
+    `table.delete( 'name' ) then table.get( 'name' ) should return undefined`,
     `table.get( 'name' )`,
     table.get( 'name' ),
     undefined
 ])
 
 unitTesting.addAssertion([
-    `table.get( 'phone' ) should return undefined since we delete that key `,
+    `table.delete( 'phone' ) then table.get( 'phone' ) should return undefined`,
     `table.get( 'phone' )`,
     table.get( 'phone' ),
     undefined
 ])
 
 unitTesting.addAssertion([
-    `table.get( 'randomAnything' ) should return undefined since that key was never added`,
+    `table.get( 'randomAnything' ) should return undefined`,
     `table.get( 'randomAnything' )`,
     table.get( 'randomAnything' ),
     undefined
