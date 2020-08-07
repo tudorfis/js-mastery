@@ -1,5 +1,7 @@
 import Tree from "../lib/data-structures/Tree.js";
 import UnitTesting from "../lib/unit-testing/UnitTesting.js";
+import findDepthFirstTests from "./Tree.test/findDepthFirstTests.js"
+import findBreadthFirstTests from "./Tree.test/findBreadthFirstTests.js"
 
 const filesystem = new Tree( '/' )
 
@@ -56,6 +58,17 @@ unitTesting.addAssertion([
 
 // filesystem.print()
 
+///////  find in nodes ///////////
+let logFind, findTypeMethod
+
+logFind = false; findTypeMethod = 'findDepthFirst'
+findDepthFirstTests({ unitTesting, filesystem, findTypeMethod, logFind })
+
+logFind = false; findTypeMethod = 'findBreadthFirst'
+findBreadthFirstTests({ unitTesting, filesystem, findTypeMethod, logFind })
+
+// filesystem.print()
+
 filesystem.delete('/games/cod.exe')
 filesystem.delete('/documents/personal/tax.docx')
 
@@ -65,7 +78,6 @@ unitTesting.addAssertion([
     JSON.stringify( filesystem.root ),
     `{"value":"/","children":[{"value":"/videos","children":[{"value":"/the matrix.avi","children":[]},{"value":"/family guy - latest episode.avi","children":[]}]},{"value":"/music","children":[]},{"value":"/games","children":[{"value":"/cod2.exe","children":[]},{"value":"/fps","children":[{"value":"/counter-strike.exe","children":[]}]}]},{"value":"/documents","children":[{"value":"/personal","children":[]}]}]}`
 ])
-
 
 filesystem.delete('/videos/the matrix.avi')
 filesystem.delete('/videos/family guy - latest episode.avi')
